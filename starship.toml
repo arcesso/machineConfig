@@ -1,0 +1,57 @@
+#command_timeout = 500
+
+# Edits are instantly available... mostly
+# Docs are good!
+# You need to install a Nerd Font. I am using Hack because that's how I roll.
+
+format = """$time $azure $directory $git_branch $hostname
+$cmd_duration $character"""
+#right_format = "$time" #unsupported for pwsh 😭
+
+[time]
+disabled = false
+style = "bold black"
+format = "[$time]($style)"
+
+#format = """
+#
+#Most demo-y prompt evar
+#Bold:        [red](bold red) [green](bold green) [blue](bold blue) [yellow](bold yellow) [purple](bold purple) [cyan](bold cyan) [white](bold white) [black](bold black)
+#Normal:      [red](red) [green](green) [blue](blue) [yellow](yellow) [purple](purple) [cyan](cyan) [white](white) [black](black)
+#Dimmed Bold: [red](dimmed bold red) [green](dimmed bold green) [blue](dimmed bold blue) [yellow](dimmed bold yellow) [purple](dimmed bold purple) [cyan](dimmed bold cyan) [white](dimmed bold white) [black](dimmed bold black)
+#Dimmed:      [red](dimmed red) [green](dimmed green) [blue](dimmed blue) [yellow](dimmed yellow) [purple](dimmed purple) [cyan](dimmed cyan) [white](dimmed white) [black](dimmed black)
+#
+#    You can also get unleash your inner creative and do stuff like:
+#    A '#' followed by a six-digit hexadecimal number specifies an RGB color hex code.
+#    A number between 0-255. This specifies an 8-bit ANSI Color Code.
+#
+#"""
+
+[azure]
+disabled = false
+format = '[$symbol($subscription)]($style)'
+symbol = 'ﴃ'
+style = 'blue bold'
+
+[directory]
+style = "green"
+truncation_length = 2
+format = "[$path]($style)"
+
+[git_branch]
+format = "[$branch]($style)"
+style = ""
+ignore_branches = ['main']
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = '🔖 '
+
+# Next line 
+[cmd_duration]
+min_time = 500
+format = '[$duration](bold yellow)'
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
